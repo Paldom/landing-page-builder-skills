@@ -1,0 +1,61 @@
+{
+  "skill": "landing-page-experimentation",
+  "cases": [
+    { "type": "should_trigger", "prompt": "set up an A/B test for my landing page headline" },
+    { "type": "should_trigger", "prompt": "how do I measure conversions on my landing page" },
+    { "type": "should_trigger", "prompt": "is my A/B test statistically significant yet?" },
+    { "type": "should_trigger", "prompt": "how many visitors do I need before I can call a test" },
+    { "type": "should_trigger", "prompt": "my A/B test tool causes a flicker, how do I fix it" },
+    { "type": "should_trigger", "prompt": "should I use a multi-armed bandit or a classic A/B test" },
+    { "type": "should_trigger", "prompt": "my analytics show tons of bot traffic, how do I filter it" },
+    { "type": "should_trigger", "prompt": "set up conversion tracking with GA4 for the landing page" },
+    { "type": "should_trigger", "prompt": "run an experiment on two hero variants" },
+    { "type": "should_trigger", "prompt": "how do I do flicker-free A/B testing in Next.js" },
+    { "type": "should_not_trigger", "prompt": "write two headline variants for me to test" },
+    { "type": "should_not_trigger", "prompt": "what sections should the landing page have" },
+    { "type": "should_not_trigger", "prompt": "pick the colors and fonts for the page" },
+    { "type": "should_not_trigger", "prompt": "improve the page's Core Web Vitals" },
+    { "type": "should_not_trigger", "prompt": "make the page accessible to screen readers" },
+    { "type": "should_not_trigger", "prompt": "add a scroll animation to the hero" },
+    { "type": "should_not_trigger", "prompt": "build the page in Next.js with shadcn" },
+    { "type": "should_not_trigger", "prompt": "get my landing page indexed by Google" },
+    { "type": "should_not_trigger", "prompt": "write unit tests for the analytics module" },
+    {
+      "type": "quality",
+      "prompt": "set up an A/B test on my landing page CTA in Next.js",
+      "expected_behavior": [
+        "assigns the variant server-side / at the edge (middleware) and renders the correct HTML, with no client-side DOM swap and no anti-flicker snippet",
+        "logs exposure server-side at assignment time (ad blockers drop 10-30% of client events)",
+        "persists the assignment in a cookie so a visitor always sees the same variant",
+        "recommends the precompute pattern (encode the variant in a URL segment) to keep static CDN caching"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "is my test done? it's been running 2 days with 40 conversions per variant",
+      "expected_behavior": [
+        "says no: flags the ~300-conversions-per-variant floor and a >=2-week multi-cycle minimum",
+        "warns against peeking / early-stopping and recommends running an A/A test first to validate tooling",
+        "notes only ~13% of tests reach a significant winner (directional) and frames the low-traffic reality"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "should I use a bandit or an A/B test for my Black Friday promo variants",
+      "expected_behavior": [
+        "recommends a multi-armed bandit (Thompson Sampling) for many short-lived, high-traffic variants to minimize regret",
+        "reserves fixed-split A/B for permanent structural decisions needing clean causal certainty",
+        "notes bandits need a conversion floor before they route meaningfully (below it they behave like round-robin)"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "my landing page gets 200 visitors a week, how do I A/B test it",
+      "expected_behavior": [
+        "flags that this traffic cannot reach significance in a reasonable window",
+        "recommends qualitative methods (heatmaps, session replay, user testing, before/after) instead of an underpowered test",
+        "explains that piling on tests at low traffic just produces false winners faster"
+      ]
+    }
+  ]
+}

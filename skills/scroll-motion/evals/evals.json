@@ -1,0 +1,61 @@
+{
+  "skill": "scroll-motion",
+  "cases": [
+    { "type": "should_trigger", "prompt": "add scroll animations to my landing page hero" },
+    { "type": "should_trigger", "prompt": "which animation library should I use, GSAP or Framer Motion?" },
+    { "type": "should_trigger", "prompt": "add a parallax effect on the hero image" },
+    { "type": "should_trigger", "prompt": "I want the sections to fade in as you scroll" },
+    { "type": "should_trigger", "prompt": "build a pinned scrolling section that scrubs through steps" },
+    { "type": "should_trigger", "prompt": "add a reading-progress bar tied to scroll" },
+    { "type": "should_trigger", "prompt": "my scroll animations are janky on mobile, fix them" },
+    { "type": "should_trigger", "prompt": "how do I respect reduced motion for my animations" },
+    { "type": "should_trigger", "prompt": "add scrollytelling to walk through our product story" },
+    { "type": "should_trigger", "prompt": "make the nav change color once you scroll past the hero" },
+    { "type": "should_trigger", "prompt": "set up smooth scrolling for the whole site" },
+    { "type": "should_not_trigger", "prompt": "write the copy for the animated hero" },
+    { "type": "should_not_trigger", "prompt": "what sections should the landing page have" },
+    { "type": "should_not_trigger", "prompt": "pick the color palette for the page" },
+    { "type": "should_not_trigger", "prompt": "my page is slow, improve Core Web Vitals overall" },
+    { "type": "should_not_trigger", "prompt": "make the page accessible to screen readers" },
+    { "type": "should_not_trigger", "prompt": "build the landing page in Next.js" },
+    { "type": "should_not_trigger", "prompt": "A/B test the animated vs static hero" },
+    { "type": "should_not_trigger", "prompt": "reduce the JavaScript bundle size of the page" },
+    {
+      "type": "quality",
+      "prompt": "add a fade-in-on-scroll to my feature cards",
+      "expected_behavior": [
+        "reaches for native CSS animation-timeline (view()) as the default for a decorative reveal, not a JS library",
+        "animates only transform/opacity (never width/height/top/box-shadow)",
+        "includes animation-fill-mode: both to prevent the reveal snapping back / flickering",
+        "adds an @supports fallback (Firefox lacks animation-timeline) and honors prefers-reduced-motion"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "I want a pinned section that scrubs an SVG path as you scroll",
+      "expected_behavior": [
+        "selects GSAP + ScrollTrigger (the pinned/scrubbed tier), noting native CSS cannot pin",
+        "uses useGSAP() (or manual ScrollTrigger cleanup) to avoid leaks in React",
+        "keeps animated properties to transform/opacity and gates motion via gsap.matchMedia() for reduced-motion users"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "which should I use for scroll animations, Framer Motion or GSAP or CSS?",
+      "expected_behavior": [
+        "answers by animation purpose, not preference: CSS for decorative reveals/progress/parallax, GSAP for pinned/scrubbed/SVG, Motion for React UI state/gestures",
+        "notes hybrid stacking of all three on one page is the normal professional pattern",
+        "flags reaching for a heavy JS library for a simple reveal as the main anti-pattern that tanks INP on mobile"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "add smooth scrolling with Lenis on top of my CSS scroll animations",
+      "expected_behavior": [
+        "warns that Lenis breaks position: sticky, IntersectionObserver thresholds, and CSS scroll-driven animations unless run in native mode (ReactLenis root)",
+        "recommends native mode, or dropping Lenis entirely if only CSS reveals are needed",
+        "keeps prefers-reduced-motion honored"
+      ]
+    }
+  ]
+}

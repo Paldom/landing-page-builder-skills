@@ -1,0 +1,32 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Copy & conversion",
+      "description": "Say the right thing, in the right order, and prove it worked - customer-sourced copy, a page that argues instead of lists, and tests that don't lie.",
+      "skills": [
+        "landing-page-copywriting",
+        "landing-page-structure",
+        "landing-page-experimentation"
+      ]
+    },
+    {
+      "title": "Design & motion",
+      "description": "Escape the generic AI look - a distinctive, enforced design system and scroll motion that stays on the compositor thread.",
+      "skills": [
+        "visual-design-system",
+        "scroll-motion"
+      ]
+    },
+    {
+      "title": "Build & ship",
+      "description": "Ship it fast, findable, and usable by everyone - Next.js done right, Core Web Vitals and SEO that survive real crawlers, and WCAG 2.2 AA.",
+      "skills": [
+        "nextjs-landing-page",
+        "web-vitals-and-seo",
+        "landing-page-accessibility"
+      ]
+    }
+  ]
+}

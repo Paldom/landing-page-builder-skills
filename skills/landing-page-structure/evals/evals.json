@@ -1,0 +1,61 @@
+{
+  "skill": "landing-page-structure",
+  "cases": [
+    { "type": "should_trigger", "prompt": "what sections should my SaaS landing page have and in what order" },
+    { "type": "should_trigger", "prompt": "how do I structure my landing page" },
+    { "type": "should_trigger", "prompt": "wireframe the layout for a product launch page" },
+    { "type": "should_trigger", "prompt": "how many fields should my signup form have" },
+    { "type": "should_trigger", "prompt": "where on the page should I put testimonials" },
+    { "type": "should_trigger", "prompt": "should my landing page use a multi-step or single-step form" },
+    { "type": "should_trigger", "prompt": "my page has 4 CTAs, is that too many?" },
+    { "type": "should_trigger", "prompt": "help me sequence the sections so the page tells a story" },
+    { "type": "should_trigger", "prompt": "design the hero section layout for a B2B tool" },
+    { "type": "should_trigger", "prompt": "should I use a bento grid for the features section" },
+    { "type": "should_not_trigger", "prompt": "write the headline copy for the hero" },
+    { "type": "should_not_trigger", "prompt": "pick the fonts and color palette for the page" },
+    { "type": "should_not_trigger", "prompt": "add a scroll animation between sections" },
+    { "type": "should_not_trigger", "prompt": "build these sections as React components in Next.js" },
+    { "type": "should_not_trigger", "prompt": "A/B test single vs multi-step form" },
+    { "type": "should_not_trigger", "prompt": "make the form accessible with proper labels" },
+    { "type": "should_not_trigger", "prompt": "improve the page's Core Web Vitals" },
+    { "type": "should_not_trigger", "prompt": "rewrite the CTA button text to be punchier" },
+    { "type": "should_not_trigger", "prompt": "translate the pricing section into Spanish" },
+    {
+      "type": "quality",
+      "prompt": "what sections and order for a B2B SaaS landing page for an invoice-automation tool",
+      "expected_behavior": [
+        "proposes an ordered section sequence framed as one argument (problem -> solution -> proof -> CTA), not a generic reorderable stack",
+        "specifies the hero must answer what/who/why-trust/what-next within the first screen",
+        "places proof adjacent to the claims it supports and repeats a single primary CTA down the page",
+        "applies the reorder test (if sections can be shuffled without hurting comprehension, the page has no argument)"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "how many fields should my demo-request form have",
+      "expected_behavior": [
+        "recommends a low field count (~3 for B2C, ~4-5 for B2B) and explains field count is the highest-leverage form lever",
+        "advises multi-step only at ~5+ fields or genuine conditional/sequential logic",
+        "suggests capturing email on the first step so abandonment still yields a lead"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "my landing page has a hero with 3 buttons and testimonials in the footer, review the structure",
+      "expected_behavior": [
+        "flags the multiple competing CTAs and recommends one primary CTA repeated down-page (plus at most one soft secondary)",
+        "flags footer-only testimonials as near-useless and moves proof next to the relevant claim or decision point",
+        "applies the reorder test to confirm the page reads as a sequenced argument"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "I'm building a single-offer landing page, should I use a bento grid",
+      "expected_behavior": [
+        "advises that bento grids are for multi-feature density, not a single dominant offer",
+        "recommends a linear section sequence with one dominant claim instead",
+        "notes that if used, a bento grid needs a clear anchor cell (~2x the next) and a mobile re-prioritization pass"
+      ]
+    }
+  ]
+}

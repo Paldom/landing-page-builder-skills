@@ -1,0 +1,61 @@
+{
+  "skill": "web-vitals-and-seo",
+  "cases": [
+    { "type": "should_trigger", "prompt": "improve my landing page's Core Web Vitals" },
+    { "type": "should_trigger", "prompt": "my page is slow, how do I make it load faster" },
+    { "type": "should_trigger", "prompt": "how do I get my landing page indexed by Google and ChatGPT" },
+    { "type": "should_trigger", "prompt": "what structured data should my landing page have" },
+    { "type": "should_trigger", "prompt": "my Lighthouse score is 100 but the page still fails Core Web Vitals in the field" },
+    { "type": "should_trigger", "prompt": "how do I add JSON-LD without breaking crawlers" },
+    { "type": "should_trigger", "prompt": "my third-party scripts are killing INP, what do I do" },
+    { "type": "should_trigger", "prompt": "technical SEO checklist for a marketing landing page" },
+    { "type": "should_trigger", "prompt": "reduce the LCP on my hero" },
+    { "type": "should_trigger", "prompt": "will AI crawlers like GPTBot actually see my content" },
+    { "type": "should_not_trigger", "prompt": "write SEO-friendly headline copy" },
+    { "type": "should_not_trigger", "prompt": "what sections should the landing page have" },
+    { "type": "should_not_trigger", "prompt": "pick the fonts and colors for the page" },
+    { "type": "should_not_trigger", "prompt": "fix the 'use client' error that's breaking my metadata export" },
+    { "type": "should_not_trigger", "prompt": "make the page accessible and WCAG compliant" },
+    { "type": "should_not_trigger", "prompt": "add scroll animations to the hero" },
+    { "type": "should_not_trigger", "prompt": "set up an A/B test on the headline" },
+    { "type": "should_not_trigger", "prompt": "set up shadcn/ui in my Next.js project" },
+    { "type": "should_not_trigger", "prompt": "add unit tests for the data-fetch function" },
+    {
+      "type": "quality",
+      "prompt": "my landing page won't rank and AI search doesn't cite it, what's wrong",
+      "expected_behavior": [
+        "checks whether content, metadata, and schema are in the initial server HTML vs rendered by JS (useEffect/client components), since AI crawlers run zero JavaScript",
+        "recommends SSG/SSR so the raw HTTP response contains the content and the LCP element",
+        "suggests verifying with curl -A 'GPTBot' <url> and View Source, not the rendered DOM",
+        "notes canonical and JSON-LD must be server-rendered and match visible content"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "my Lighthouse is 95 but Search Console says Core Web Vitals are failing",
+      "expected_behavior": [
+        "explains Google ranks on CrUX field data (real users, p75, 28-day window), not the Lighthouse lab score",
+        "gives the workflow CrUX = truth -> RUM = why -> Lighthouse = how to fix",
+        "recommends gating CI on Total Blocking Time as the lab proxy for INP, and confirms thresholds LCP <=2.5s / INP <=200ms / CLS <=0.1"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "my analytics and chat widgets are tanking INP",
+      "expected_behavior": [
+        "identifies third-party scripts as the primary INP killer",
+        "recommends move-don't-delete: server-side tagging (sGTM) for pixels, edge variant assignment instead of a client anti-flicker snippet, and deferring/idle-loading chat and heatmaps",
+        "mentions Partytown (web worker) with its synchronous-DOM-access caveat"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "should I keep my FAQ schema now that rich results are gone",
+      "expected_behavior": [
+        "notes FAQ rich results stopped appearing (May 2026) but FAQPage JSON-LD is still valid and parsed by Google and LLMs for entity understanding, so keeping it is fine",
+        "clarifies schema is not a direct ranking factor",
+        "version-gates the deprecation date and points to verifying against Google's current docs"
+      ]
+    }
+  ]
+}

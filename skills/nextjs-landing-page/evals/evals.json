@@ -1,0 +1,61 @@
+{
+  "skill": "nextjs-landing-page",
+  "cases": [
+    { "type": "should_trigger", "prompt": "build my landing page in Next.js with shadcn" },
+    { "type": "should_trigger", "prompt": "scaffold a Next.js App Router marketing page" },
+    { "type": "should_trigger", "prompt": "I'm getting a 'use client' error with generateMetadata" },
+    { "type": "should_trigger", "prompt": "set up shadcn/ui in my Next.js project" },
+    { "type": "should_trigger", "prompt": "my Next.js landing page ships a huge JS bundle, why?" },
+    { "type": "should_trigger", "prompt": "how do I add the hero image with next/image without CLS" },
+    { "type": "should_trigger", "prompt": "convert this React landing page to server components" },
+    { "type": "should_trigger", "prompt": "should this component be a server or client component" },
+    { "type": "should_trigger", "prompt": "set up Tailwind v4 with shadcn and dark mode" },
+    { "type": "should_trigger", "prompt": "my Next.js page renders a blank head and no title, help" },
+    { "type": "should_not_trigger", "prompt": "write the hero copy for the page" },
+    { "type": "should_not_trigger", "prompt": "what sections should the landing page have" },
+    { "type": "should_not_trigger", "prompt": "pick the fonts and color palette" },
+    { "type": "should_not_trigger", "prompt": "add a scroll parallax effect to the hero" },
+    { "type": "should_not_trigger", "prompt": "improve my Core Web Vitals field scores" },
+    { "type": "should_not_trigger", "prompt": "make the components accessible to screen readers" },
+    { "type": "should_not_trigger", "prompt": "what JSON-LD structured data should I add for SEO" },
+    { "type": "should_not_trigger", "prompt": "write tests for the page component" },
+    { "type": "should_not_trigger", "prompt": "deploy the finished site to Vercel" },
+    {
+      "type": "quality",
+      "prompt": "build a Next.js App Router landing page hero with an interactive email capture",
+      "expected_behavior": [
+        "keeps the page and layout as Server Components and pushes 'use client' to the interactive leaf (the email form), not the shell",
+        "uses next/image with priority on the LCP hero image",
+        "keeps metadata in a server file (not in a 'use client' file, which cannot export metadata)",
+        "notes SSG/prerender is the default for a marketing page"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "my Next.js marketing site ships 300KB of JS, how do I cut it",
+      "expected_behavior": [
+        "identifies 'use client' placed too high (in a layout or shell) pulling its whole import subtree into the browser bundle as the likely cause",
+        "recommends moving the boundary to leaf components and passing Server Components as children to keep them server-rendered",
+        "suggests next/dynamic for heavy client-only libraries and auditing for accidental client boundaries"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "set up shadcn/ui in my new Next.js + Tailwind v4 project",
+      "expected_behavior": [
+        "notes shadcn is 'open code' (vendors source into the repo; upstream sync is a manual diff/merge, not a version bump)",
+        "mentions the July 2026 Base UI default and the -b radix opt-out as version-dependent, to verify against the changelog",
+        "flags that Tailwind v4 needs @theme inline (plain @theme silently breaks dark mode) and recommends theming tokens to escape the default look"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "I'm deploying a Next.js 15 App Router site, anything critical to patch first?",
+      "expected_behavior": [
+        "flags CVE-2025-55182 'React2Shell', a critical (CVSS 10.0) RSC Flight-protocol deserialization RCE affecting React 19.0-19.2.0 and Next.js 15.x-16.x App Router",
+        "directs to patch to fixed versions (React 19.2.1 / 19.1.2 / 19.0.1 and Next.js 16.0.7 or the patched 15.x releases) and verify against the official React/Next advisory",
+        "notes default create-next-app configs are exploitable even without explicit server functions"
+      ]
+    }
+  ]
+}

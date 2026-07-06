@@ -1,0 +1,61 @@
+{
+  "skill": "landing-page-accessibility",
+  "cases": [
+    { "type": "should_trigger", "prompt": "make my landing page accessible" },
+    { "type": "should_trigger", "prompt": "fix the WCAG issues on my page" },
+    { "type": "should_trigger", "prompt": "run an accessibility audit on this page" },
+    { "type": "should_trigger", "prompt": "does my page work with a screen reader?" },
+    { "type": "should_trigger", "prompt": "my form errors aren't accessible, fix them" },
+    { "type": "should_trigger", "prompt": "are my icon buttons big enough for accessibility" },
+    { "type": "should_trigger", "prompt": "the focus outline is invisible, fix keyboard navigation" },
+    { "type": "should_trigger", "prompt": "should I add an accessibility overlay widget like accessiBe" },
+    { "type": "should_trigger", "prompt": "check my color contrast meets accessibility standards" },
+    { "type": "should_trigger", "prompt": "add proper labels and alt text for a11y" },
+    { "type": "should_not_trigger", "prompt": "write the page copy" },
+    { "type": "should_not_trigger", "prompt": "what sections should the landing page have" },
+    { "type": "should_not_trigger", "prompt": "pick a distinctive color palette for the brand" },
+    { "type": "should_not_trigger", "prompt": "add scroll animations to the hero" },
+    { "type": "should_not_trigger", "prompt": "build the signup form in Next.js" },
+    { "type": "should_not_trigger", "prompt": "improve the page's Core Web Vitals" },
+    { "type": "should_not_trigger", "prompt": "A/B test the CTA button" },
+    { "type": "should_not_trigger", "prompt": "get my page indexed by Google" },
+    { "type": "should_not_trigger", "prompt": "rewrite the copy with simpler words" },
+    {
+      "type": "quality",
+      "prompt": "make my landing page accessible",
+      "expected_behavior": [
+        "prioritizes native semantic HTML over ARIA (a real <button> not <div role=button>, landmarks, one H1, logical heading order)",
+        "checks contrast (4.5:1 text, 3:1 large text and non-text UI) and requires visible focus indicators",
+        "requires labeled form fields with inline errors AND a summarized, linked error region focused on submit",
+        "states automated scanners catch only ~30-40% of issues, so a manual keyboard + screen-reader pass is required, and advises against overlay widgets"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "my icon buttons are tiny, is that an accessibility problem",
+      "expected_behavior": [
+        "cites WCAG 2.5.8 Target Size (Minimum): 24x24 CSS px minimum, 44x44 recommended for touch",
+        "suggests adding padding or an invisible hit area to reach the minimum without enlarging the visible icon",
+        "mentions the spacing exception (undersized targets can pass if adequately spaced)"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "should I install an accessibility overlay to get compliant fast",
+      "expected_behavior": [
+        "advises against overlay widgets: they fix only a fraction of issues, conflict with real assistive tech, and are a legal/FTC red flag",
+        "recommends native semantic HTML plus a real manual audit instead",
+        "does not present the overlay as a shortcut to compliance"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "do I legally need my landing page accessible for EU customers",
+      "expected_behavior": [
+        "notes the European Accessibility Act became enforceable June 28, 2025 for B2C digital services sold into the EU (WCAG 2.1 AA via EN 301 549)",
+        "version-gates the date and points to verifying current requirements against an authoritative source",
+        "mentions US ADA Title II deadlines land around mid-2026 as also drift-prone, and recommends targeting WCAG 2.2 AA"
+      ]
+    }
+  ]
+}

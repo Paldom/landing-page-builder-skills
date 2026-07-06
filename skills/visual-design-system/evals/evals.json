@@ -1,0 +1,61 @@
+{
+  "skill": "visual-design-system",
+  "cases": [
+    { "type": "should_trigger", "prompt": "pick a color palette and fonts for my landing page" },
+    { "type": "should_trigger", "prompt": "my AI-generated site looks generic like every other SaaS, fix the design" },
+    { "type": "should_trigger", "prompt": "how do I stop Cursor from producing the same purple-gradient look every time" },
+    { "type": "should_trigger", "prompt": "set up a DESIGN.md so the agent builds on-brand" },
+    { "type": "should_trigger", "prompt": "define design tokens for our brand" },
+    { "type": "should_trigger", "prompt": "what typography and spacing should this landing page use" },
+    { "type": "should_trigger", "prompt": "make the agent follow our design system instead of hardcoding hex colors" },
+    { "type": "should_trigger", "prompt": "how do I enforce our brand colors so the AI doesn't drift off them" },
+    { "type": "should_trigger", "prompt": "choose a distinctive visual style for our marketing page" },
+    { "type": "should_trigger", "prompt": "set up lint rules that reject arbitrary colors in AI-written components" },
+    { "type": "should_not_trigger", "prompt": "write the hero headline copy" },
+    { "type": "should_not_trigger", "prompt": "what sections should the landing page have and in what order" },
+    { "type": "should_not_trigger", "prompt": "add a fade-in animation on scroll" },
+    { "type": "should_not_trigger", "prompt": "build the button component in React" },
+    { "type": "should_not_trigger", "prompt": "run an accessibility audit for screen readers" },
+    { "type": "should_not_trigger", "prompt": "A/B test two color variants of the CTA" },
+    { "type": "should_not_trigger", "prompt": "improve the page's Core Web Vitals" },
+    { "type": "should_not_trigger", "prompt": "write copy that isn't generic AI slop" },
+    { "type": "should_not_trigger", "prompt": "scaffold a Next.js project with shadcn" },
+    {
+      "type": "quality",
+      "prompt": "our v0-generated landing page looks like every other SaaS, give it a distinctive look",
+      "expected_behavior": [
+        "names the specific AI-slop tells to remove (default Inter/Poppins, blue-to-purple/aurora gradient, glassmorphism, three equal-weight card grid, centered eyebrow-pill hero)",
+        "proposes a constrained palette budget (<=4 roles, warm neutrals over pure #fff/#000, accent reserved for the CTA) and 1-2 typefaces with a >=16px body floor",
+        "warns that telling the model 'make it premium/distinctive' ratchets toward the average, and to specify concrete budgets instead"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "set up a DESIGN.md so our coding agent stays on brand",
+      "expected_behavior": [
+        "describes DESIGN.md as YAML tokens plus prose rationale, with tokens defined as roles (primary = 'main ink color') not raw hex",
+        "includes a Do's-and-Don'ts section built from real bad outputs actually seen",
+        "notes DESIGN.md is an early/alpha convention (Google Labs, 2026) to verify against the current spec, not a ratified cross-tool standard",
+        "recommends keeping visual spec in DESIGN.md, separate from behavioral rules in AGENTS.md/CLAUDE.md"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "how do I make sure the AI actually uses our tokens and doesn't hardcode colors",
+      "expected_behavior": [
+        "recommends deterministic enforcement gates over prose (ESLint no-arbitrary-colors / no-restricted-imports, Stylelint declaration-strict-value, TS discriminated unions for variants, visual-regression + axe-core in CI)",
+        "explains enforcement beats prose because written rules get dropped under deadline",
+        "caps the self-correction loop and forbids the agent editing lint config, adding eslint-disable, or minting a new token to dodge a rule"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "just give me the brand hex codes, that's all the agent needs",
+      "expected_behavior": [
+        "pushes back that raw token values without usage rules just relocate the problem",
+        "explains the agent also needs roles, prose judgment, and a Don'ts list, not only hex values",
+        "notes a pure token dump still produces technically-correct but off-brand output"
+      ]
+    }
+  ]
+}

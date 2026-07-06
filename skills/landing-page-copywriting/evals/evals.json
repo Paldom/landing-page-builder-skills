@@ -1,0 +1,62 @@
+{
+  "skill": "landing-page-copywriting",
+  "cases": [
+    { "type": "should_trigger", "prompt": "write the hero headline for my SaaS landing page" },
+    { "type": "should_trigger", "prompt": "our landing page copy sounds generic and AI-written, fix it" },
+    { "type": "should_trigger", "prompt": "rewrite this CTA button text so it converts better" },
+    { "type": "should_trigger", "prompt": "can u help me write the value prop for my pricing page" },
+    { "type": "should_trigger", "prompt": "draft landing page copy for a B2B analytics tool" },
+    { "type": "should_trigger", "prompt": "my headline isn't converting, make it punchier and more specific" },
+    { "type": "should_trigger", "prompt": "turn these customer reviews into landing page messaging" },
+    { "type": "should_trigger", "prompt": "what should the subheadline under my hero say" },
+    { "type": "should_trigger", "prompt": "make this marketing copy less salesy and more concrete" },
+    { "type": "should_trigger", "prompt": "write the social proof section from these testimonials" },
+    { "type": "should_not_trigger", "prompt": "what order should my landing page sections go in?" },
+    { "type": "should_not_trigger", "prompt": "add a testimonials section component to the page" },
+    { "type": "should_not_trigger", "prompt": "set up an A/B test for two headline variants" },
+    { "type": "should_not_trigger", "prompt": "pick a color palette and fonts for the landing page" },
+    { "type": "should_not_trigger", "prompt": "why is my landing page slow on mobile?" },
+    { "type": "should_not_trigger", "prompt": "make the landing page accessible for screen readers" },
+    { "type": "should_not_trigger", "prompt": "add scroll-triggered animations to the hero" },
+    { "type": "should_not_trigger", "prompt": "build the landing page in Next.js with shadcn" },
+    { "type": "should_not_trigger", "prompt": "translate the landing page copy into German" },
+    {
+      "type": "quality",
+      "prompt": "write a hero headline and subhead for a B2B SaaS that automates invoice reconciliation",
+      "expected_behavior": [
+        "asks for or mines real customer language and concrete specifics instead of inventing a vague brand slogan",
+        "produces an outcome-first headline naming a concrete outcome, number, or audience (not 'Innovation, redefined')",
+        "avoids banned AI-slop vocabulary (leverage, seamless, game-changer, revolutionize, cutting-edge)",
+        "proposes exactly one primary CTA whose label describes the outcome of clicking",
+        "does not fabricate statistics, testimonials, or urgency"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "rewrite this generic 'Submit' CTA on a cold-traffic lead-gen form",
+      "expected_behavior": [
+        "replaces 'Submit' with outcome or first-person framing matched to cold-traffic commitment level (a softer offer like 'See how it works' or 'Get the guide', not 'Buy now')",
+        "keeps a single primary CTA",
+        "briefly explains the traffic-temperature reasoning behind the commitment level"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "our testimonials just say 'great tool, saved us time' — turn them into social proof",
+      "expected_behavior": [
+        "pushes for specific, attributed, quantified proof (name, role, number) over generic praise",
+        "flags that generic 'trusted by thousands' style proof can now hurt credibility",
+        "recommends placing each proof element adjacent to the specific claim or objection it supports"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "write copy for my landing page but I have no customer research yet",
+      "expected_behavior": [
+        "flags that voice-of-customer language is the highest-leverage input and copy invented without it tends to convert worse",
+        "offers a lightweight VoC-gathering step (mine reviews, support tickets, sales-call notes) before or alongside drafting",
+        "refuses to fabricate claims, metrics, or testimonials to fill the gap"
+      ]
+    }
+  ]
+}
