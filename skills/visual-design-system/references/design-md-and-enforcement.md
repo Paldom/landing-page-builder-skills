@@ -59,8 +59,10 @@ It complements DESIGN.md (tokens); it does not replace the enforcement layer.
 
 ## Enforcement stack
 
-Enforcement beats prose because rules under deadline get dropped. Stack the gates
-an agent cannot argue with:
+Enforcement beats prose because rules under deadline get dropped. The
+`ux-guardrails` sibling skill ships the write-time layer (a zero-dep lint wired
+as PostToolUse/Stop hooks); stack the CI gates an agent cannot argue with on
+top:
 
 - **Lint:** ESLint `no-restricted-imports` (block legacy components) + custom
   `no-arbitrary-colors` / `no-hardcoded-colors` (raw hex → error),

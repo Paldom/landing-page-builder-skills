@@ -13,9 +13,11 @@
     },
     {
       "title": "Design & motion",
-      "description": "Escape the generic AI look - a distinctive, enforced design system and scroll motion that stays on the compositor thread.",
+      "description": "Escape the generic AI look - a committed art direction, a distinctive enforced design system, hook-based UX guardrails, and scroll motion that stays on the compositor thread.",
       "skills": [
+        "landing-page-art-direction",
         "visual-design-system",
+        "ux-guardrails",
         "scroll-motion"
       ]
     },

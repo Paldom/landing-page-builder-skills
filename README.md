@@ -1,10 +1,14 @@
+<p align="center">
+  <img src="assets/icon.svg" alt="landing-page-builder-skills icon" width="128"/>
+</p>
+
 # Landing Page Builder Skills
 
 [![CI](https://github.com/Paldom/landing-page-builder-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/Paldom/landing-page-builder-skills/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![skills.sh](https://skills.sh/b/Paldom/landing-page-builder-skills)](https://skills.sh/Paldom/landing-page-builder-skills)
 
-Agent Skills for building high-converting, modern, performant landing pages: design tokens, conversion copywriting, marketing UX, layout patterns, Next.js/React + shadcn implementation, scroll motion, and performance/SEO/accessibility.
+Agent Skills for building high-converting, modern, performant landing pages: art direction, design tokens, hook-enforced UX guardrails, conversion copywriting, marketing UX, layout patterns, Next.js/React + shadcn implementation, scroll motion, and performance/SEO/accessibility.
 
 Agent Skills for [Claude Code](https://code.claude.com/docs/en/skills) (and any
 [Agent Skills](https://agentskills.io)-compatible tool). Each skill is a folder under
@@ -48,14 +52,16 @@ explicitly with `/<skill-name>`.
 
 ## Skills
 
-These eight skills compose into a full landing-page build. A paste-ready
+These ten skills compose into a full landing-page build. A paste-ready
 orchestration prompt lives in [docs/setup-prompt.md](docs/setup-prompt.md).
 
 | Skill | Description |
 | --- | --- |
 | [landing-page-copywriting](skills/landing-page-copywriting/) | Conversion copy that reads human, not AI slop — VoC mining, outcome-first headlines, CTA labels, specific social proof. |
 | [landing-page-structure](skills/landing-page-structure/) | The section skeleton as one sequenced argument — hero anatomy, ordering, form-field count, CTA/proof placement. |
+| [landing-page-art-direction](skills/landing-page-art-direction/) | A named direction committed before code — macrostructure, type personality, palette family, motion character — with a numeric modern-minimalist spec and cross-project variety. |
 | [visual-design-system](skills/visual-design-system/) | A distinctive on-brand look plus DESIGN.md tokens and lint/visual/a11y gates that keep AI output off the generic "slop" aesthetic. |
+| [ux-guardrails](skills/ux-guardrails/) | A zero-dep UX lint (spacing scale, type budget, WCAG token contrast, slop tells) wired as Claude Code hooks that block critical violations. |
 | [scroll-motion](skills/scroll-motion/) | Scroll animation at the right tier (CSS / GSAP / Motion) that protects INP and honors prefers-reduced-motion. |
 | [nextjs-landing-page](skills/nextjs-landing-page/) | Next.js App Router build with leaf-level client boundaries, shadcn/Tailwind setup, and the metadata & React2Shell CVE gotchas. |
 | [web-vitals-and-seo](skills/web-vitals-and-seo/) | Server-rendered HTML for crawlers and AI bots, Core Web Vitals, field-vs-lab, and structured data. |

@@ -1,6 +1,6 @@
 ---
 name: visual-design-system
-description: Sets up a landing page's visual design system and keeps AI output on-brand - palette/type/spacing budgets that avoid generic 'AI slop' aesthetics, plus a DESIGN.md (tokens-as-roles, a Don'ts list) and lint/visual/a11y enforcement gates. Use when asked to choose colors, fonts, or visual style, stop AI design sameness, or set up design tokens. Not for copy, layout structure, motion, or SEO.
+description: Sets up a landing page's visual design system and keeps AI output on-brand - palette/type/spacing budgets that avoid generic 'AI slop' aesthetics, plus a DESIGN.md (tokens-as-roles, a Don'ts list) and enforcement gates. Use when asked to choose colors, fonts, or design tokens, or encode brand rules. Not for copy, layout, motion, SEO, picking the art direction, or the lint hook itself.
 ---
 
 # visual-design-system
@@ -26,11 +26,13 @@ budgets**, and **encode + enforce them mechanically.**
 Use to choose palette / type / spacing, kill the generic AI look, and set up a
 machine-readable design system (DESIGN.md, tokens, lint gates) that agents obey.
 
-Not for: the words (`landing-page-copywriting`), section skeleton
-(`landing-page-structure`), animation (`scroll-motion`), building components
-(`nextjs-landing-page`), full WCAG compliance work (`landing-page-accessibility`
-— this skill treats contrast only as a floor), or ranking/perf
-(`web-vitals-and-seo`).
+Not for: choosing the overall look/direction before tokens exist
+(`landing-page-art-direction` — it decides, this skill systematizes), the
+shipped deterministic lint hook (`ux-guardrails`), the words
+(`landing-page-copywriting`), section skeleton (`landing-page-structure`),
+animation (`scroll-motion`), building components (`nextjs-landing-page`), full
+WCAG compliance work (`landing-page-accessibility` — this skill treats
+contrast only as a floor), or ranking/perf (`web-vitals-and-seo`).
 
 ## Workflow
 
@@ -51,10 +53,13 @@ Not for: the words (`landing-page-copywriting`), section skeleton
    convention (Google Labs, alpha), not a ratified standard — verify against the
    current spec.
 4. **Enforce with deterministic gates.** Prose is advisory; a failing lint rule
-   is not. Stack: ESLint `no-restricted-imports` + custom `no-arbitrary-colors`;
-   Stylelint `declaration-strict-value`; TypeScript discriminated unions for
-   variants; visual-regression (Playwright `toHaveScreenshot()`); axe-core in CI.
-   Cap the agent's self-correction loop and forbid it editing the lint config.
+   is not. Fastest path: install the `ux-guardrails` hook (this skill set ships
+   it) — write-time spacing/type/contrast/slop checks wired into Claude Code.
+   Full CI stack on top: ESLint `no-restricted-imports` + custom
+   `no-arbitrary-colors`; Stylelint `declaration-strict-value`; TypeScript
+   discriminated unions for variants; visual-regression (Playwright
+   `toHaveScreenshot()`); axe-core in CI. Cap the agent's self-correction loop
+   and forbid it editing the lint config.
    Details: `references/design-md-and-enforcement.md`.
 
 ## The rules

@@ -1,0 +1,62 @@
+{
+  "skill": "landing-page-art-direction",
+  "cases": [
+    { "type": "should_trigger", "prompt": "the landing page looks like every other AI site, make it distinctive" },
+    { "type": "should_trigger", "prompt": "pick an art direction for this landing page before you build it" },
+    { "type": "should_trigger", "prompt": "I want a modern minimalist look that doesn't feel generic" },
+    { "type": "should_trigger", "prompt": "give the page a real visual direction - no default AI aesthetic" },
+    { "type": "should_trigger", "prompt": "why do all our generated pages look the same? fix that" },
+    { "type": "should_trigger", "prompt": "choose a visual style for the site and commit to it" },
+    { "type": "should_trigger", "prompt": "make it look designed, not templated" },
+    { "type": "should_trigger", "prompt": "make this less ai slop looking pls" },
+    { "type": "should_trigger", "prompt": "new landing page for a coffee roaster - what look should we go for?" },
+    { "type": "should_not_trigger", "prompt": "choose the color palette and font pairing for the brand" },
+    { "type": "should_not_trigger", "prompt": "what sections should the page have and in what order?" },
+    { "type": "should_not_trigger", "prompt": "set up the design tokens and DESIGN.md" },
+    { "type": "should_not_trigger", "prompt": "add scroll animations so the page feels alive" },
+    { "type": "should_not_trigger", "prompt": "write a punchier hero headline" },
+    { "type": "should_not_trigger", "prompt": "enforce our design rules with a hook" },
+    { "type": "should_not_trigger", "prompt": "make the landing page accessible" },
+    { "type": "should_not_trigger", "prompt": "build the hero section in Next.js with shadcn" },
+    { "type": "should_not_trigger", "prompt": "A/B test two hero variants" },
+    {
+      "type": "quality",
+      "prompt": "Pick a direction for a B2B analytics landing page",
+      "expected_behavior": [
+        "opens with a one-line design read (subject, audience, page job) before any visual choice",
+        "commits to a named direction across the four axes: macrostructure, type personality, palette family, motion character",
+        "explicitly names the AI defaults being rejected (e.g. centered hero + Inter + purple gradient + three-card grid)",
+        "writes the direction commitment into DESIGN.md before any component code",
+        "the chosen direction is justified from the brief, not a stock 'bold editorial' default"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Our page looks like AI slop - make it distinctive",
+      "expected_behavior": [
+        "diagnoses which specific sameness tells are present rather than restyling blindly",
+        "changes direction on at least two named axes instead of adding decoration",
+        "does not equate 'distinctive' with 'more effects' - restraint is offered as a direction",
+        "preserves existing brand tokens and copy intent"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Give it a modern minimal direction",
+      "expected_behavior": [
+        "applies the numeric minimalist scaffolding (spacing rhythm, type scale, single accent) instead of vague 'clean and simple' prose",
+        "includes at least one anti-boring mechanism: typographic contrast, texture/depth, or a single signature element",
+        "does not produce an empty flat page - minimal is executed as precision, not absence"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "This is the fourth landing page this month and they all look identical",
+      "expected_behavior": [
+        "consults or creates the cross-project design log before choosing",
+        "picks a direction that differs from recent entries on named axes and states that comparison in text",
+        "does not force restyling of any existing shipped page - rotation applies to new projects only"
+      ]
+    }
+  ]
+}

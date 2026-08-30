@@ -1,0 +1,61 @@
+{
+  "skill": "ux-guardrails",
+  "cases": [
+    { "type": "should_trigger", "prompt": "set up a hook that enforces our design system whenever the agent edits UI files" },
+    { "type": "should_trigger", "prompt": "the agent keeps writing p-[13px] and random font sizes - can we lint that automatically?" },
+    { "type": "should_trigger", "prompt": "add automatic checks for spacing scale and color contrast on every edit" },
+    { "type": "should_trigger", "prompt": "enforce UX rules like focus states and token colors as a claude code hook" },
+    { "type": "should_trigger", "prompt": "can u make claude block itself when it writes low contrast token pairs" },
+    { "type": "should_trigger", "prompt": "install the ux lint hook in this landing page repo" },
+    { "type": "should_trigger", "prompt": "our tailwind spacing is drifting off the grid, enforce the scale mechanically" },
+    { "type": "should_trigger", "prompt": "wire up a PostToolUse hook that catches AI slop like purple gradients and transition-all" },
+    { "type": "should_trigger", "prompt": "run the ux guardrails check on src/components before we merge" },
+    { "type": "should_trigger", "prompt": "stop the model from hardcoding bg-blue-500 instead of semantic tokens" },
+    { "type": "should_not_trigger", "prompt": "make the landing page WCAG AA accessible" },
+    { "type": "should_not_trigger", "prompt": "choose a color palette and fonts for the landing page" },
+    { "type": "should_not_trigger", "prompt": "set up eslint and prettier for this repo" },
+    { "type": "should_not_trigger", "prompt": "write a pre-commit hook that runs the test suite" },
+    { "type": "should_not_trigger", "prompt": "why does my dark mode contrast look off on the pricing card?" },
+    { "type": "should_not_trigger", "prompt": "add a scroll reveal animation to the hero" },
+    { "type": "should_not_trigger", "prompt": "define the DESIGN.md tokens for our brand" },
+    { "type": "should_not_trigger", "prompt": "review my landing page and tell me if the design looks good" },
+    { "type": "should_not_trigger", "prompt": "the SKILL.md validation hook in this skills repo is failing" },
+    {
+      "type": "quality",
+      "prompt": "Install the ux-guardrails hook in this Next.js landing repo",
+      "expected_behavior": [
+        "copies scripts/ux_lint.mjs into the project's .claude/hooks/ directory",
+        "merges PostToolUse and Stop entries into .claude/settings.json without deleting existing hooks",
+        "runs the script's --self-test and reports it passing before declaring done",
+        "explains the two severity tiers (critical blocks, advisory informs) and the ignore-comment escape hatch"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Run the UX lint over src/ and tell me what's wrong",
+      "expected_behavior": [
+        "runs the bundled script in CLI mode against the paths rather than eyeballing files",
+        "reports findings grouped by file in file:line format with rule ids",
+        "separates critical findings from advisory ones and does not invent findings the script did not emit"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "The hook keeps flagging our brand's intentional purple gradient - make it stop",
+      "expected_behavior": [
+        "suppresses the finding via the documented ignore mechanism (inline ignore comment or config ignoreRules)",
+        "does not edit or weaken the lint script itself and does not disable the whole hook",
+        "notes that the brief/brand wins over the slop heuristic"
+      ]
+    },
+    {
+      "type": "quality",
+      "prompt": "Why didn't the hook flag the contrast of --accent against --muted in globals.css?",
+      "expected_behavior": [
+        "explains that contrast is only computed for resolvable token pairs following the -foreground pairing convention",
+        "explains that unresolvable or unpaired values are skipped silently by design to avoid false positives",
+        "suggests pairing tokens as --x / --x-foreground if the pair should be checked"
+      ]
+    }
+  ]
+}
