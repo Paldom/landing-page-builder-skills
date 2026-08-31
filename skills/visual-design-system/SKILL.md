@@ -1,6 +1,6 @@
 ---
 name: visual-design-system
-description: Sets up a landing page's visual design system and keeps AI output on-brand - palette/type/spacing budgets that avoid generic 'AI slop' aesthetics, plus a DESIGN.md (tokens-as-roles, a Don'ts list) and enforcement gates. Use when asked to choose colors, fonts, or design tokens, or encode brand rules. Not for copy, layout, motion, SEO, picking the art direction, or the lint hook itself.
+description: Sets up a landing page's visual design system - choosing the palette, typography and spacing scale and encoding them as tokens in a DESIGN.md, so generated output stops defaulting to the same purple-gradient look every time. Use when asked to choose colors, fonts, typography, spacing, or design tokens, or to encode brand rules. Not for copy, layout, motion, SEO, or the enforcement gate.
 ---
 
 # visual-design-system

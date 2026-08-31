@@ -1,7 +1,7 @@
 {
   "name": "landing-page-builder-skills",
   "description": "Agent Skills for building high-converting, modern, performant landing pages: design tokens, conversion copywriting, marketing UX, layout patterns, Next.js/React + shadcn implementation, scroll motion, and performance/SEO/accessibility.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Paldom",
     "url": "https://github.com/Paldom"
